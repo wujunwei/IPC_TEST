@@ -7,7 +7,7 @@
  */
 $data = '{"code":0,"msg":"ok","info":["hello","world"]}';
 $context = new ZMQContext ();
-$sender = new ZMQSocket ($context, ZMQ::SOCKET_PUSH);
+$sender = $context->getSocket(ZMQ::SOCKET_PUSH);
 $sender->connect("ipc://step2.ipc");
 //向消息队列中写
 $i = 1000;
