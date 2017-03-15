@@ -6,16 +6,10 @@
  * Time: 上午 9:57
  */
 
-$data = '{"code":0,"msg":"ok","info":["hello","world"]}';
 $context = new ZMQContext ();
 
-$receiver = new ZMQSocket ($context, ZMQ::SOCKET_PAIR);
+$receiver = new ZMQSocket ($context, ZMQ::SOCKET_PUSH);
 $receiver->bind ("ipc://step2.ipc");
- 
-$strings = $receiver->recv();
-
-$sender = new ZMQSocket ($context, ZMQ::SOCKET_PAIR);
- 
-$sender->connect ("ipc://step3.ipc");
- 
-$sender->send ($data);
+ while (1){
+     $strings = $receiver->recv();
+ }
