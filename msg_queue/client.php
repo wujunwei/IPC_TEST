@@ -7,7 +7,7 @@
  */
 
 $data = '{"code":0,"msg":"ok","info":["hello","world"]}';
-$key = ftok(__DIR__.'server.php', 'a');
+$key = ftok(__DIR__.DIRECTORY_SEPARATOR.'server.php', 'a');
 $message_queue = msg_get_queue($key, 0666);
 //向消息队列中写
 $i = 1000;
