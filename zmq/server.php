@@ -7,10 +7,15 @@
  */
 
 $data = '{"code":0,"msg":"ok","info":["hello","world"]}';
-$key = ftok(__FILE__, 'a');
-$message_queue = msg_get_queue($key, 0666);
-//从消息队列中读
-while (1){
-    msg_receive($message_queue, 0, $message_type, 1024, $message, true, MSG_IPC_NOWAIT);
-}
-msg_remove_queue($message_queue);
+$context = new ZMQContext ();
+
+$receiver = new ZMQSocket ($context, ZMQ::SOCKET_PAIR);
+$receiver->bind ("ipc://step2.ipc");
+ 
+$strings = $receiver->recv();
+
+$sender = new ZMQSocket ($context, ZMQ::SOCKET_PAIR);
+ 
+$sender->connect ("ipc://step3.ipc");
+ 
+$sender->send ($data);
