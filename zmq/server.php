@@ -8,8 +8,8 @@
 
 $context = new ZMQContext ();
 
-$receiver = new ZMQSocket ($context, ZMQ::SOCKET_PUSH);
-$receiver->bind ("ipc://step2.ipc");
+$receiver = new ZMQSocket ($context, ZMQ::SOCKET_PULL);
+$receiver->connect ("ipc://step2.ipc");
  while (1){
      $strings = $receiver->recv();
  }
