@@ -13,3 +13,4 @@ $receiver->connect ("ipc://step2.ipc");
  while (1){
      $strings = $receiver->recv();
  }
+$receiver->disconnect("ipc://step2.ipc");

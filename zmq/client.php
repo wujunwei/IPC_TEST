@@ -15,4 +15,4 @@ while ($i > 0){
     $i --;
     $sender->send($data);
 }
-$sender->disconnect("ipc://step2.ipc");
+$sender->unbind("ipc://step2.ipc");
