@@ -15,4 +15,3 @@ while ($i > 0){
     $i --;
     $sender->send($data, ZMQ::MODE_DONTWAIT);
 }
-$sender->unbind("ipc:////step2.ipc");

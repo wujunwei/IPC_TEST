@@ -9,7 +9,7 @@
 $context = new ZMQContext ();
 
 $receiver = $context->getSocket(ZMQ::SOCKET_PULL);
-$receiver->bind("ipc:////step2.ipc");
+$receiver->connect("ipc:////step2.ipc");
  while (1){
      $strings = $receiver->recv();
  }
