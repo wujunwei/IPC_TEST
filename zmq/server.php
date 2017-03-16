@@ -11,5 +11,5 @@ $context = new ZMQContext ();
 $receiver = $context->getSocket(ZMQ::SOCKET_PULL);
 $receiver->bind("ipc:////step2.ipc");
  while (1){
-//     $strings = $receiver->recv();
+     $strings = $receiver->recv();
  }
