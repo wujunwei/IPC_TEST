@@ -4,19 +4,15 @@
  * User: Administrator
  * Date: 2017-03-15
  * Time: 上午 9:57
+ * port：12212
  */
 
 $data = '{"code":0,"msg":"ok","info":["hello","world"]}';
-$key = ftok(__DIR__.DIRECTORY_SEPARATOR.'server.php', 'a');
-$message_queue = msg_get_queue($key, 0666);
-//向消息队列中写
+$m = new Memcache();
+$m->connect('127.0.0.1',12212);
 $i = 1000;
 while ($i > 0){
+    $m->set('testq','{"code":0,"msg":"ok","info":["hello","world"]}');
     $i --;
-    msg_send($message_queue, 1, $data);
-
 }
-
-if (isset($_GET['end'])){
-    msg_remove_queue($message_queue);
-}
+$m->close();

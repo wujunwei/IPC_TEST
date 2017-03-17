@@ -6,11 +6,14 @@
  * Time: 上午 9:57
  */
 
-$data = '{"code":0,"msg":"ok","info":["hello","world"]}';
-$key = ftok(__FILE__, 'a');
-$message_queue = msg_get_queue($key, 0666);
-//从消息队列中读
+$m = new Memcache();
+$m->connect('127.0.0.1',12212);
+$display = true;
 while (1){
-    msg_receive($message_queue, 0, $message_type, 1024, $message, true, MSG_IPC_NOWAIT);
+    $date = $m->get('testq');
+    if ($display){
+        var_dump($date);
+        $display = false;
+    }
 }
-msg_remove_queue($message_queue);
+$m->close();
