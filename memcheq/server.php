@@ -7,7 +7,7 @@
  */
 
 $m = new Memcache();
-$m->connect('127.0.0.1',12212);
+$m->connect('127.0.0.1',22201);
 $display = true;
 while (1){
     $date = $m->get('testq');
