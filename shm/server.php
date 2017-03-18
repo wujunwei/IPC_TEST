@@ -11,9 +11,9 @@ $key = ftok(__FILE__, 'a');
 $shmid = shm_attach( $key, '10240', 0666 );
 $view = true;
 while (1){
-    if (shm_has_var($shmid, 'test_q')){
-        $string = shm_get_var($shmid, 'test_q');
-        shm_remove_var($shmid, 'test_q');
+    if (shm_has_var($shmid, 1)){
+        $string = shm_get_var($shmid, 1);
+        shm_remove_var($shmid, 1);
         if ($view){
             echo $string;
         }
