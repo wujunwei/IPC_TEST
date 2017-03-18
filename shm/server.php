@@ -13,7 +13,6 @@ $view = true;
 while (1){
     if (shm_has_var($shmid, 1)){
         $string = shm_get_var($shmid, 1);
-        shm_remove_var($shmid, 1);
         if ($view){
             echo $string;
             $view = false;
