@@ -10,3 +10,4 @@ while (1){
     $string = apcu_fetch('test');
     echo $string;
 }
+apcu_clear_cache();
