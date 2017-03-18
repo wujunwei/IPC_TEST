@@ -9,6 +9,7 @@
 $data = '{"code":0,"msg":"ok","info":["hello","world"]}';
 $i = 1000;
 while ($i > 0){
+    $i--;
     apcu_store('test', $data);
 }
 
