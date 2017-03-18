@@ -16,6 +16,7 @@ while (1){
         shm_remove_var($shmid, 1);
         if ($view){
             echo $string;
+            $view = false;
         }
     }
 }
