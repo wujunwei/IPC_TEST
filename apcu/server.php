@@ -6,15 +6,7 @@
  * Time: 上午 9:57
  */
 
-$data = '{"code":0,"msg":"ok","info":["hello","world"]}';
-$key = ftok(__FILE__, 'a');
-$shmid = shm_attach( $key, '10240', 0666 );
-$view = true;
 while (1){
-    if ($view){
-        echo shm_get_var( $shmid, 'test_q' );
-    }else{
-        $string = shm_get_var($shmid, 'test_q');
-    }
+    $string = apcu_fetch('test');
+    echo $string;
 }
-shm_remove( $shmid );
