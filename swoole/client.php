@@ -10,5 +10,5 @@ if( !$client->connect("127.0.0.1", 9501 , 1) ) {
 $i = 1000;
 while ($i > 0){
     $i --;
-    $this->client->send($data);
+    $client->send($data);
 }
